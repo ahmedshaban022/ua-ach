@@ -1,3 +1,5 @@
+import { ChecklistWorkspace } from "@/components/checklist-workspace";
+
 const ArrowIcon = () => (
   <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18">
     <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" />
@@ -24,6 +26,10 @@ export default function Home() {
           <p className="hero-description">
             A practical release checklist for finding accessibility gaps before they reach production.
           </p>
+          <div className="hero-actions">
+            <a className="start-link" href="#audit">Start the audit <ArrowIcon /></a>
+            <span>15 checks · 4 categories · local-first</span>
+          </div>
         </div>
 
         <div className="hero-stamp" aria-label="Designed for thoughtful frontend teams">
@@ -36,11 +42,9 @@ export default function Home() {
       <ChecklistWorkspace />
 
       <footer>
-        <p>Built for better releases.</p>
-        <p>Open source · 2026</p>
+        <p>Built for better releases by <a href="https://github.com/ahmedshaban022">Ahmed Shaban</a>.</p>
+        <p><a href="https://www.w3.org/WAI/WCAG22/quickref/">WCAG quick reference</a> · Open source</p>
       </footer>
     </main>
   );
 }
-import { ChecklistWorkspace } from "@/components/checklist-workspace";
-
