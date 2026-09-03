@@ -111,6 +111,13 @@ h1 em { color: var(--signal); font-weight: 500; }
 .secondary-button { border-color: var(--line); background: transparent; color: var(--muted); }
 .secondary-button:hover { border-color: var(--ink); color: var(--ink); }
 :focus-visible { outline: 3px solid var(--signal); outline-offset: 4px; }
+.contribute { padding: 100px clamp(24px, 5vw, 76px); display: grid; grid-template-columns: minmax(220px, .66fr) minmax(0, 1.34fr); gap: clamp(64px, 8vw, 140px); border-top: 1px solid var(--line); background: var(--acid); }
+.contribute .eyebrow { align-self: start; }
+.contribute h2 { max-width: 900px; font-size: clamp(52px, 7vw, 108px); }
+.contribute > div > p { max-width: 700px; margin: 36px 0 0; color: rgba(23,35,29,.7); font-size: clamp(16px, 1.7vw, 21px); line-height: 1.6; }
+.contribute-actions { margin-top: 34px; display: flex; align-items: center; gap: 26px; }
+.text-link { font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; text-underline-offset: 5px; }
+.text-link:hover { text-decoration-color: var(--signal); }
 footer { padding: 32px clamp(24px, 5vw, 76px); display: flex; justify-content: space-between; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
 footer a { text-underline-offset: 4px; text-decoration-color: rgba(23,35,29,.35); }
 footer a:hover { color: var(--ink); text-decoration-color: var(--signal); }
@@ -125,6 +132,7 @@ footer a:hover { color: var(--ink); text-decoration-color: var(--signal); }
   .hero-stamp { width: 150px; height: 150px; justify-self: end; }
   .audit { grid-template-columns: 1fr; }
   .audit-intro { position: static; }
+  .contribute { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
   .site-header { min-height: 72px; }
@@ -132,6 +140,7 @@ footer a:hover { color: var(--ink); text-decoration-color: var(--signal); }
   .header-link::before { content: "Source"; font-size: 11px; }
   h1 { font-size: clamp(62px, 21vw, 92px); }
   .hero-actions { align-items: flex-start; flex-direction: column; }
+  .contribute-actions { align-items: flex-start; flex-direction: column; }
   .audit-toolbar { grid-template-columns: 1fr; }
   .check-item { grid-template-columns: 42px 1fr; }
   .check-number { display: none; }

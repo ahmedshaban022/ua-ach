@@ -1,0 +1,24 @@
+name: Improvement idea
+description: Suggest a focused improvement to the checklist or experience.
+title: "[Idea]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What need would this address?
+      description: Explain the user or release problem, not only the proposed feature.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested improvement
+      description: Describe the smallest useful version of the change.
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: Accessibility reference
+      description: Link to WCAG, WAI guidance, or another authoritative source when applicable.

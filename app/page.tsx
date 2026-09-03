@@ -14,8 +14,8 @@ export default function Home() {
           <span className="brand-mark" aria-hidden="true">S</span>
           <span>Shipshape</span>
         </a>
-        <a className="header-link" href="https://github.com/ahmedshaban022/ua-ach">
-          View source <ArrowIcon />
+        <a className="header-link" href="https://github.com/ahmedshaban022/ua-ach" target="_blank" rel="noreferrer">
+          Star on GitHub <ArrowIcon />
         </a>
       </header>
 
@@ -40,6 +40,25 @@ export default function Home() {
       </section>
 
       <ChecklistWorkspace />
+
+      <section className="contribute" aria-labelledby="contribute-title">
+        <p className="eyebrow"><span>03</span> Open source</p>
+        <div>
+          <h2 id="contribute-title">Help make every release more accessible.</h2>
+          <p>
+            Found a missing check or a clearer way to explain one? Open an issue, suggest an
+            improvement, or share Shipshape with a frontend team.
+          </p>
+          <div className="contribute-actions">
+            <a className="start-link" href="https://github.com/ahmedshaban022/ua-ach/issues/new/choose" target="_blank" rel="noreferrer">
+              Suggest an improvement <ArrowIcon />
+            </a>
+            <a className="text-link" href="https://github.com/ahmedshaban022/ua-ach" target="_blank" rel="noreferrer">
+              View the repository
+            </a>
+          </div>
+        </div>
+      </section>
 
       <footer>
         <p>Built for better releases by <a href="https://github.com/ahmedshaban022">Ahmed Shaban</a>.</p>

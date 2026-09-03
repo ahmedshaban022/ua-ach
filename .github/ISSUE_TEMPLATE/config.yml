@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: WCAG 2.2 quick reference
+    url: https://www.w3.org/WAI/WCAG22/quickref/
+    about: Check the normative accessibility guidance before proposing a new checklist item.

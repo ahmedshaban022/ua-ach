@@ -2,15 +2,15 @@ import type { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-export default function robots(): MetadataRoute.Robots {
+export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ahmedshaban022.github.io/ua-ach";
 
-  return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
+  return [
+    {
+      url: siteUrl,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
-  };
+  ];
 }
-
