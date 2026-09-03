@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { categories, checklist, type CategoryFilter } from "@/lib/checklist";
 
 const STORAGE_KEY = "shipshape-audit-v1";
@@ -31,7 +31,7 @@ export function ChecklistWorkspace() {
   const [completed, setCompleted] = useState<Set<string>>(new Set());
   const [project, setProject] = useState("");
   const [filter, setFilter] = useState<CategoryFilter>("All");
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -55,10 +55,7 @@ export function ChecklistWorkspace() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ project, completed: [...completed] }));
   }, [completed, project, ready]);
 
-  const visibleItems = useMemo(
-    () => checklist.filter((item) => filter === "All" || item.category === filter),
-    [filter],
-  );
+  const visibleItems = checklist.filter((item) => filter === "All" || item.category === filter);
 
   const completedCount = completed.size;
   const percentage = Math.round((completedCount / checklist.length) * 100);
@@ -86,9 +83,13 @@ export function ChecklistWorkspace() {
       remaining.length ? `Remaining:\n${remaining.map((item) => `- ${item.title}`).join("\n")}` : "Ready to ship.",
     ].join("\n\n");
 
-    await navigator.clipboard.writeText(report);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1800);
+    try {
+      await navigator.clipboard.writeText(report);
+      setCopyStatus("copied");
+    } catch {
+      setCopyStatus("failed");
+    }
+    window.setTimeout(() => setCopyStatus("idle"), 1800);
   }
 
   return (
@@ -167,7 +168,7 @@ export function ChecklistWorkspace() {
         <div className="audit-actions">
           <button className="secondary-button" type="button" onClick={resetAudit}>Reset audit</button>
           <button className="primary-button" type="button" onClick={copyReport}>
-            <CopyIcon /> {copied ? "Report copied" : "Copy report"}
+            <CopyIcon /> {copyStatus === "copied" ? "Report copied" : copyStatus === "failed" ? "Copy failed" : "Copy report"}
           </button>
         </div>
       </div>

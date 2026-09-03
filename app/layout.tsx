@@ -16,6 +16,7 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: "Shipshape — Accessibility release checklist",
   description:
     "A focused, practical accessibility checklist for frontend teams shipping to production.",
@@ -41,4 +42,3 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
-
