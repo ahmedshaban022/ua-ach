@@ -33,16 +33,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="workspace-preview" aria-labelledby="workspace-title">
-        <div className="preview-heading">
-          <p className="eyebrow"><span>02</span> Audit workspace</p>
-          <h2 id="workspace-title">Release confidence,<br />item by item.</h2>
-        </div>
-        <div className="preview-card">
-          <p>Interactive checklist arriving in the next release.</p>
-          <span className="status-pill"><i /> Foundation ready</span>
-        </div>
-      </section>
+      <ChecklistWorkspace />
 
       <footer>
         <p>Built for better releases.</p>
@@ -51,4 +42,5 @@ export default function Home() {
     </main>
   );
 }
+import { ChecklistWorkspace } from "@/components/checklist-workspace";
 
